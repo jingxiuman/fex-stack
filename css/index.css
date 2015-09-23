@@ -69,9 +69,51 @@ body {
   text-decoration: dashed;
   text-underline: dash;
 }
-.index_rightMain {
-  background-color: #e3e3e3;
-}
 .index_rightNav {
   background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #cccccc;
+}
+.index_rightChatRoom {
+  position: relative;
+  height: calc(100% - 60px);
+}
+.index_rightChatRoom_input {
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  right: 0;
+}
+.index_rightChatRoom_home {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  right: 0;
+}
+.index_rightNotice {
+  line-height: 2rem;
+}
+.chat_img {
+  width: 32px;
+  border-radius: 5px;
+}
+.divide_main {
+  width: 100%;
+}
+.divide_main span {
+  width: 15%;
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  color: #cccccc;
+}
+.divide_main div {
+  display: inline-block;
+  border: 1px solid #cccccc;
+  width: 42%;
+}
+.chat_del {
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: #ccc;
 }
