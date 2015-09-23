@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="zh-CN">
     <meta charset="UTF-8">
     <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/style/base.css">
 	<!-- build:css ./css/index.min.css -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
 	<!-- /build -->
 	<script data-main="./js/" src="http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/FFF.fc.template.min.js"></script>
@@ -15,6 +16,72 @@
 	<!-- /build -->
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row main">
+        <div class="col-lg-2 index_leftNav">
+            <div class="index_roomName">
+                <div>benbentime <span class="caret"></span></div>
+                <div class="index_roomInfo">
+                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                    <span class="onlineStatus online  pull-right"></span>
+                </div>
+            </div>
+            <div class="index_roomPerson">
+                <div>Online person<span class="glyphicon glyphicon-user person_num pull-right ">12</span></div>
+                <div class="index_roomInfo">
+                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                    <span class="onlineStatus  pull-right"></span>
+                </div>
+                <div class="index_roomInfo">
+                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                    <span class="onlineStatus  pull-right"></span>
+                </div>
+                <div class="index_roomInfo">
+                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                    <span class="onlineStatus  pull-right"></span>
+                </div>
+            </div>
+            <div class="index_roomName index_topic">
+                <div>Chanel topic<span class="caret"></span></div>
+                <div class="index_roomInfo">
+                    <a href="#">#topic</a>
+                </div>
+                <div class="index_roomInfo">
+                    <a href="#">#topic</a>
+                </div>
+                <div class="index_roomInfo">
+                    <a href="#">#topic</a>
+                </div>
+            </div>
+            <div class="index_roomName index_invite">
+                <div>Share link<span class="caret"></span></div>
+                <div class="index_roomInfo">
+                    <a href="#">inverter person <span class="glyphicon glyphicon-share"></span></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-10 index_rightMain">
+            <div class=" index_rightNav">
+                <div class="col-lg-3">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Dropdown
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9"></div>
+            </div>
+        </div>
+    </div>
+</div>
     
 </body>
 </html>

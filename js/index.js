@@ -1,5 +1,11 @@
 require(['FFF', 'zepto', 'fastclick'], function(FFF, $, fc) {
     fc.attach(document.body);
     var F = FFF.FFF;
-    alert(1)
+
 });
+jQuery.noConflict();
+(function( $ ) {
+    $(function() {
+// More code using $ as alias to jQuery
+    });
+})(jQuery);
