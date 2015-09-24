@@ -1,7 +1,7 @@
 /**
  * Created by benbentime on 2015/9/23.
  */
-require(['FFF', 'zepto', 'fastclick'], function(FFF, $, fc) {
+define(['FFF', 'zepto', 'fastclick','wildDog'], function(FFF, $, fc) {
     fc.attach(document.body);
     var F = FFF.FFF;
     var Widght = F.Widget;
@@ -55,7 +55,12 @@ require(['FFF', 'zepto', 'fastclick'], function(FFF, $, fc) {
             var that = this;
             var box = that.getBoundingBox();
             box.find('.chat_del').on('click', function () {
-                
+                var chatRoom = sessionStorage.getItem('ChatRoom');
+                var chatID = that.getChatID();
+                if(chatRoom && chatID){
+                    var ref = new Wilddog("http://xb_chatroom.wilddogio.com/chat/"+chatRoom+"/"+ chatID);
+                    ref.remove();
+                }
             })
         }
 

@@ -103,7 +103,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
                         <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <span class="input-group-addon">发送</span>
+                        <span class="input-group-addon btn_send">发送</span>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -114,7 +114,8 @@
 <script>
     require.config({
         paths:{
-            index:'./index'
+            index:'./index',
+            wildDog:'https://cdn.wilddog.com/js/client/current/wilddog'
         }
     });
     require(['index'], function (index) {
