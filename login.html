@@ -1,10 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head lang="zh-CN">
     <meta charset="UTF-8">
     <title>登陆页面</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
 
+    <!-- build:css ./css/index.min.css -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <!-- /build -->
+    <script src = "https://cdn.wilddog.com/js/client/current/wilddog.js" ></script>
+    <script data-main="./js/" src="http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/FFF.fc.template.min.js"></script>
+    </head>
+<body class="login">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 login_main">
+            <div class="panel panel-default center-block login_login">
+                <div class="panel-heading text-center"><h3>欢迎登陆</h3></div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">用户名</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">密码</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="login_login_btn">
+                            <button type="button" class="btn btn-primary" id="login_login_btn">登陆</button>
+                            <button type="button" class="btn btn-primary" id="login_register_btn">注册</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default center-block login_register">
+                <div class="panel-heading text-center"><h3>欢迎注册</h3></div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">用户名</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">密码</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="login_login_btn">
+                            <button type="button" class="btn btn-primary" id="login_login_btn">登陆</button>
+                            <button type="button" class="btn btn-primary" id="login_register_btn">注册</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>
+    <script>
+        require.config({
+            paths:{
+                jquery:'../js/jquery-2.1.4.min',
+                bootstrap:'../js/bootstrap.min'
+            },
+            shim:{
+                'bootstrap':['jquery']
+            }
+        });
+        require(['login'], function (login) {
+            login.init();
+        })
+    </script>
 </body>
 </html>

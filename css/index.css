@@ -7,6 +7,7 @@ body,
 }
 html {
   font-size: 10px;
+  overflow: hidden;
 }
 body {
   font-size: 1.2rem;
@@ -87,8 +88,11 @@ body {
 .index_rightChatRoom_home {
   position: absolute;
   bottom: 45px;
+  top: 0;
   left: 0;
   right: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .index_rightNotice {
   line-height: 2rem;
@@ -119,4 +123,43 @@ body {
 }
 .btn_send {
   cursor: pointer;
+}
+.btn_send:active {
+  background-color: #333333;
+  color: #ffffff;
+}
+.chat_name {
+  color: #756D6D;
+}
+.chat_content {
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 10px;
+  width: 50%;
+}
+.login {
+  background-color: #19b16c;
+}
+.login_main {
+  position: relative;
+}
+.login_login,
+.login_register {
+  margin-top: 40%;
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  right: 5%;
+}
+.login_login_btn {
+  text-align: center;
+}
+.login_login_btn button {
+  margin: 0 10%;
+}
+.login_login {
+  z-index: 50;
+}
+.login_register {
+  z-index: 49;
 }

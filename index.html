@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
 	<!-- /build -->
+    <script src = "https://cdn.wilddog.com/js/client/current/wilddog.js" ></script>
 	<script data-main="./js/" src="http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/FFF.fc.template.min.js"></script>
 </head>
 <body>
@@ -77,7 +78,8 @@
                             </div>
                         </div>
                         <div class="col-lg-10 index_rightNotice">
-                               this is a notice
+                               this is a notice<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
                         </div>
                     </div>
 
@@ -102,7 +104,7 @@
                 <div class="index_rightChatRoom_input">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <input type="text" class="form-control" id="content_input">
                         <span class="input-group-addon btn_send">发送</span>
                     </div>
                 </div>
@@ -111,11 +113,34 @@
         </div>
     </div>
 </div>
+<!--没有登陆-->
+
+<div class="modal fade bs-example-modal-sm" id="loginTimeOut" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title" id="msg_title">Modal title</h4>
+            </div>
+            <div class="modal-body msg_main">
+               登陆失效了
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" id="msg_btn">点击登陆</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     require.config({
         paths:{
-            index:'./index',
-            wildDog:'https://cdn.wilddog.com/js/client/current/wilddog'
+            index:'index',
+            jquery:'../js/jquery-2.1.4.min',
+            bootstrap:'../js/bootstrap.min'
+        },
+        shim:{
+            'bootstrap':['jquery']
         }
     });
     require(['index'], function (index) {

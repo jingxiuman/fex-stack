@@ -1,17 +1,17 @@
 /**
  * Created by benbentime on 2015/9/23.
  */
-define(['FFF', 'zepto', 'fastclick','wildDog'], function(FFF, $, fc) {
+define(['FFF', 'zepto', 'fastclick'], function(FFF, $, fc) {
     fc.attach(document.body);
     var F = FFF.FFF;
-    var Widght = F.Widget;
+    var Widget = F.Widget;
     function chatBody (){
-        widget.apply(this,arguments);
+        Widget.apply(this,arguments);
     }
 
     chatBody.ATTRS = {
         boundingBox:{
-            value:$(' <div class="media chat_main"> </div>')
+            value:$('<div class="media chat_main"><div class="chat_content"></div></div>')
         },
         personUrl:{
             value:''
@@ -33,7 +33,7 @@ define(['FFF', 'zepto', 'fastclick','wildDog'], function(FFF, $, fc) {
         }
     };
 
-    F.extend(chatBody, Widght, {
+    F.extend(chatBody, Widget, {
         initialize: function(data){
             var that = this;
             that.setPersonUrl(data.personUrl);
@@ -45,11 +45,12 @@ define(['FFF', 'zepto', 'fastclick','wildDog'], function(FFF, $, fc) {
         },
         renderUI: function(){
             var that =this;
-            var box = that.getBoundingBox();
+            var box = that.getBoundingBox().find(".chat_content");
+
             box.append('<div class="media-left"><a href="'+that.getPersonUrl()+'"> ' +
-                '<img class="media-object chat_img" src="'+that.getPersonImg+'" alt="'+that.getPersonName()+'"></a> </div>');
+                '<img class="media-object chat_img" src="'+that.getPersonImg()+'" alt="'+that.getPersonName()+'"></a> </div>');
             box.append('<div class="media-body">' +
-                '<h3 class="media-heading">'+that.getPersonName()+' <small>'+that.getChatTime()+'</small><a href="#" class="chat_del">删除</a></h3>'+that.getChatContent()+'</div>')
+                '<h5 class="media-heading chat_name">'+that.getPersonName()+' <small>'+that.getChatTime()+'</small><a href="#" class="chat_del">删除</a></h5>'+that.getChatContent()+'</div>')
         },
         bindUI: function(){
             var that = this;
