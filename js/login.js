@@ -7,10 +7,10 @@ define(['jquery', 'bootstrap'], function ($) {
         $("#login_login_btn").on("click", function () {
 
         });
-        $("#login_register_btn").on("click", function () {
-            $(".login_login").fadeOut();
+       /* $("#login_register_btn").on("click", function () {
+            $(".login_login").addClass("animation");
             $(".login_register").fadeIn();
-        })
+        })*/
     };
     return login;
 });

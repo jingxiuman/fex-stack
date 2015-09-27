@@ -59,11 +59,14 @@ define(['chat','zepto','jquery', 'bootstrap'], function(chat,zepto,$) {
        var token = localStorage.getItem('token') || '',
            userName = localStorage.getItem('username') || '';
         $.post('server/api.php',{token:token,username:userName}, function (data) {
-            console.log(data);
+            console.log(data.code);
             if(data.code == 200){
                 index.initIndex();
             }else if(data.code == 100){
                 console.log(1);
+                index.loginError()
+            }else if(data.code == 300){
+                console.log(2);
                 index.loginError()
             }
         },'json')

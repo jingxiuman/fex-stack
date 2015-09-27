@@ -155,9 +155,9 @@ body{
 }
 .login_main{
   position: relative;
+  height: 100%;overflow: hidden;
 }
 .login_login,.login_register{
-  margin-top: 40%;
   position: absolute;
   top: 40%;
   left: 5%;
@@ -176,3 +176,17 @@ body{
   z-index: 49;
 
 }
+/*
+@keyframes login_login {
+  20%{
+    -webkit-transform: translate(-20%, -50%) scale(0.9);
+    transform: translate(-20%, -50%) scale(0.9);
+  }
+  100%{
+    -webkit-transform: translate(-110%, -40%) scale(0.9);
+    transform: translate(-110%, -40%) scale(0.9);
+  }
+}
+.login_login.animation{
+  .animation(login_login 2s ease-in forwards )
+}*/
