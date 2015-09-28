@@ -1,4 +1,4 @@
-define(['chat','zepto','jquery', 'bootstrap'], function(chat,zepto,$) {
+define(['chat','zepto','jquery', 'bootstrap','leftNav'], function(chat,zepto,$,leftNavBox) {
     var  index = {};
     index.content = zepto(".index_rightChatRoom_home");
     index.init = function () {
@@ -8,7 +8,17 @@ define(['chat','zepto','jquery', 'bootstrap'], function(chat,zepto,$) {
         var nowDate = new Date();
         index.content.append('<div class="divide_main"><div></div> <span>'+nowDate.toLocaleString()+'</span> <div></div> </div>');
         index.input();
+        index.leftNav();
         index.getLast();
+    };
+    index.leftNav = function () {
+        //初始化聊天的房间
+        var chatroom = localStorage.getItem("chatroom") || 'default';
+        localStorage.setItem("chatroom", chatroom);
+        var leftNavBox = new leftNavBox();
+        leftNavBox.render({
+            container:zepto("#index_leftNav")
+        })
     };
     index.getLast = function () {
         var roomName = sessionStorage.getItem('ChatRoom') || "default";
@@ -59,7 +69,7 @@ define(['chat','zepto','jquery', 'bootstrap'], function(chat,zepto,$) {
        var token = localStorage.getItem('token') || '',
            userName = localStorage.getItem('username') || '';
         $.post('server/api.php',{token:token,username:userName}, function (data) {
-            console.log(data.code);
+            //console.log(data.code);
             if(data.code == 200){
                 index.initIndex();
             }else if(data.code == 100){

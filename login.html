@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./js/webupload/webuploader.css"/>
     <!-- /build -->
     <script src = "https://cdn.wilddog.com/js/client/current/wilddog.js" ></script>
+    <script src = "js/md5.min.js"></script>
     <script data-main="./js/" src="http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/FFF.fc.template.min.js"></script>
     </head>
 <body class="login">
@@ -21,10 +22,17 @@
             <div class="panel panel-default center-block login_login">
                 <div class="panel-heading text-center"><h3>XB_chatRoom欢迎登陆</h3></div>
                 <div class="panel-body">
+                    <div class="alert alert-warning fade in" role="alert" id="login_msg">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+
+                        </button>
+                        <p class="login_msg_main">登陆失败</p>
+                    </div>
                     <div class="row">
                         <div class="col-xs-4">
                             <img src="img/index.jpg" alt="..." class=" img-responsive center-block img-circle" style="width: 75%">
-                            <p class="text-center text-primary">点击上面换头像</p>
+                            <p class="text-center text-primary">如果没有注册，自动注册</p>
                         </div>
                         <div class="col-xs-8">
                             <form>

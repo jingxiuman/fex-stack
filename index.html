@@ -16,48 +16,51 @@
 <body>
 <div class="container-fluid">
     <div class="row main">
-        <div class="col-lg-2 col-sm-2 col-md-2 index_leftNav">
-            <div class="index_roomName">
-                <div>benbentime <span class="caret"></span></div>
-                <div class="index_roomInfo">
-                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
-                    <span class="onlineStatus online  pull-right"></span>
+        <div class="col-lg-2 col-sm-2 col-md-2 " id="index_leftNav">
+         <!--   <div class="index_leftNav">
+                <div class="index_roomName">
+                    <div>benbentime <span class="caret"></span></div>
+                    <div class="index_roomInfo">
+                        <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                        <span class="onlineStatus online  pull-right"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="index_roomPerson">
-                <div>Online person<span class="glyphicon glyphicon-user person_num pull-right ">12</span></div>
-                <div class="index_roomInfo">
-                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
-                    <span class="onlineStatus  pull-right"></span>
+                <div class="index_roomPerson">
+                    <div>Online person<span class="glyphicon glyphicon-user person_num pull-right ">12</span></div>
+                    <div class="index_roomInfo">
+                        <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                        <span class="onlineStatus  pull-right"></span>
+                    </div>
+                    <div class="index_roomInfo">
+                        <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                        <span class="onlineStatus  pull-right"></span>
+                    </div>
+                    <div class="index_roomInfo">
+                        <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
+                        <span class="onlineStatus  pull-right"></span>
+                    </div>
                 </div>
-                <div class="index_roomInfo">
-                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
-                    <span class="onlineStatus  pull-right"></span>
+                <div class="index_roomName index_topic">
+                    <div>Chanel topic<span class="caret"></span></div>
+                    <div class="index_roomInfo">
+                        <a href="#">#topic</a>
+                    </div>
+                    <div class="index_roomInfo">
+                        <a href="#">#topic</a>
+                    </div>
+                    <div class="index_roomInfo">
+                        <a href="#">#topic</a>
+                    </div>
                 </div>
-                <div class="index_roomInfo">
-                    <img src="img/index.jpg" class=" img-circle" alt="span"/>admin
-                    <span class="onlineStatus  pull-right"></span>
-                </div>
-            </div>
-            <div class="index_roomName index_topic">
-                <div>Chanel topic<span class="caret"></span></div>
-                <div class="index_roomInfo">
-                    <a href="#">#topic</a>
-                </div>
-                <div class="index_roomInfo">
-                    <a href="#">#topic</a>
-                </div>
-                <div class="index_roomInfo">
-                    <a href="#">#topic</a>
-                </div>
-            </div>
-            <div class="index_roomName index_invite">
-                <div>Share link<span class="caret"></span></div>
-                <div class="index_roomInfo">
-                    <a href="#">inverter person <span class="glyphicon glyphicon-share"></span></a>
-                </div>
+                <div class="index_roomName index_invite">
+                    <div>Share link<span class="caret"></span></div>
+                    <div class="index_roomInfo">
+                        <a href="#">inverter person <span class="glyphicon glyphicon-share"></span></a>
+                    </div>
 
-            </div>
+                </div>
+            </div>-->
+
         </div>
         <div class="col-lg-10 col-sm-10 col-md-10 index_rightMain">
             <div class="row">
@@ -134,6 +137,7 @@
 </div>
 <script>
     require.config({
+        urlArgs: "bust=" + (new Date()).getTime(),
         paths:{
             index:'index',
             jquery:'../js/jquery-2.1.4.min',
