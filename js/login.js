@@ -55,6 +55,7 @@ define(['jquery', 'bootstrap'], function ($) {
         $.post("server/login.php",{type:'token',username: personName},function (data) {
             localStorage.setItem('token', data);
             localStorage.setItem('username',personName);
+            localStorage.setItem('userID', userID);
             window.location.href='index.html'
         }, 'json');
         var ref = new Wilddog("http://xb_chatroom.wilddogio.com/user/"+userID);

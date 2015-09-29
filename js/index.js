@@ -1,4 +1,4 @@
-define(['chat','zepto','jquery', 'bootstrap','leftNav'], function(chat,zepto,$,leftNavBox) {
+define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,leftNav) {
     var  index = {};
     index.content = zepto(".index_rightChatRoom_home");
     index.init = function () {
@@ -15,7 +15,7 @@ define(['chat','zepto','jquery', 'bootstrap','leftNav'], function(chat,zepto,$,l
         //初始化聊天的房间
         var chatroom = localStorage.getItem("chatroom") || 'default';
         localStorage.setItem("chatroom", chatroom);
-        var leftNavBox = new leftNavBox();
+        var leftNavBox = new leftNav();
         leftNavBox.render({
             container:zepto("#index_leftNav")
         })
@@ -25,8 +25,8 @@ define(['chat','zepto','jquery', 'bootstrap','leftNav'], function(chat,zepto,$,l
         if(roomName){
             var ref = new Wilddog("http://xb_chatroom.wilddogio.com/chat/"+roomName);
             ref.on("child_added", function (data) {
-                //var user = ref.root().child("user/"+data.personID);
-                var user={personName:'admin',personImg:'img/index.jpg'};
+                var user = ref.root().child("user/"+data.personID);
+                //var user={personName:'admin',personImg:'img/index.jpg'};
                 //console.log(data.val());
                 var data_main = data.val(),
                     data_time = new Date(data_main.chatTime);

@@ -11,7 +11,7 @@ define(['FFF'], function (FFF) {
 
     left.ATTRS = {
         boundingBox:{
-            value:'<div class="index_leftNav"></div>'
+            value:$('<div class="index_leftNav"></div>')
         },
         chatAdmin:{
             value:''
@@ -40,19 +40,21 @@ define(['FFF'], function (FFF) {
                 '<div class="index_roomInfo"> <img src="img/index.jpg" class=" img-circle" alt="span"/>'+that.getChatAdmin()+
                 '<span class="onlineStatus online  pull-right"></span> </div> </div>');
             var indexRoomPerson = '<div class="index_roomPerson"><div>Online person<span class="glyphicon glyphicon-user person_num pull-right ">'+that.getOnlineNum()+'</span></div>';
-            var ref_online = new Wilddog("http://xb_chatroom.wilddogio.com/user");
+            var ref_online = new Wilddog("http://xb_chatroom.wilddogio.com/user/");
             ref_online.on('value', function (data) {
                 var data_main = data.val(),value;
                 for(value in data_main){
-                    if(data_main[value].personStatus == 1){
+                    if(data_main[value].personStatus == '1'){
                         that.setOnlineNum(+that.getOnlineNum() +1);
                         indexRoomPerson +='<div class="index_roomInfo"><img src="'+data_main[value].personImg+'" class=" img-circle" alt="span"/>' +
                             data_main[value].personName+'<span class="onlineStatus online  pull-right"></span> </div>'
                     }
                 }
+                indexRoomPerson +='</div>';
+                box_main.append(indexRoomPerson);
             });
-            indexRoomPerson +='</div>';
-            box_main.append(indexRoomPerson);
+
+
 
         }
     });

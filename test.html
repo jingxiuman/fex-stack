@@ -3,18 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src = "https://cdn.wilddog.com/js/client/current/wilddog.js" ></script>
+    <style>
+        html,body{
+            height:100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width:100%;
+            height:100%;
+            position: relative;
+        }
+        .sidebar{
+            width: 200px;
+            background-color: red;
+            height: calc(100% - 75px);
+            position: absolute;
+        }
+        .content{
+            width: calc(100% - 200px);
+            height: calc(100% - 75px);
+            float: right;
+            background-color: blue;
+            overflow: scroll;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .footer{
+            width: 100%;
+            height: 75px;
+            background-color: #19b16c;
+        }
+        .clear{
+            clear: both;
+        }
+        .header{
+            background-color: #00a2d4;
+            width: 100%;
+            height: 50px;
+        }
+        .toolbar{
+            background-color: #985f0d;
+            width: 100%;
+            height: 30px;
+        }
+        .list_item{
+            height: 200px;
+            background-color: #d4d4d4;
+            margin: 10% 0;
+        }
+        .top{
+            position: fixed;
+            top: 0;
+            left: 200px;
+            right: 16px;
+        }
+    </style>
+    <script>
+       window.onload = function () {
+           window.onscroll = function () {
+               var top = window.pageYOffset ||window.scrollY;
+               var item = document.getElementsByClassName("toolbar");
+               console.log(top);
+               if(top > 75){
+                   item.style.position="fixed";
+                   item.style.top="0";
+                   item.style.left='200px';
+                   item.style.right='16px';
+               }else{
+                   item.style.position="relative";
+                   item.style.top="";
+                   item.style.left='';
+                   item.style.right='';
+               }
+           }
+
+       }  ;
+
+
+
+
+
+    </script>
 </head>
 <body>
+<div class="container">
+    <div class="sidebar">
+        sidebar
+    </div>
+    <div class="content">
+        <div class="header">header</div>
+        <div class="toolbar">toolbar</div>
+        <div class="list">
+        list
+            <div class="list_item">list_item</div>
+            <div class="list_item">list_item</div>
+            <div class="list_item">list_item</div>
+            <div class="list_item">list_item</div>
+            <div class="list_item">list_item</div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="footer">
+        footer
+    </div>
 
-<script>
-    var qw = new Wilddog("http://xb_chatroom.wilddogio.com/");
-
-    qw.push({
-        chatTime: '',
-        chatContent: 12,
-        personId: '12'
-    })
-</script>
+</div>
 </body>
 </html>
