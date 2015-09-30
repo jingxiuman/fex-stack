@@ -25,23 +25,30 @@ define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,le
         if(roomName){
             var ref = new Wilddog("http://xb_chatroom.wilddogio.com/chat/"+roomName);
             ref.on("child_added", function (data) {
-                var user = ref.root().child("user/"+data.personID);
-                //var user={personName:'admin',personImg:'img/index.jpg'};
-                //console.log(data.val());
                 var data_main = data.val(),
                     data_time = new Date(data_main.chatTime);
-                var box = new chat({
-                    //personUrl:data.personID,
-                    personUrl: '',
-                    personName:user.personName,
-                    personImg:user.personImg,
-                    chatTime:data_time.toLocaleString(),
-                    chatContent:data.val().chatContent
-                });
+                var user = new Wilddog("http://xb_chatroom.wilddogio.com/user/"+data_main.personId);
+                    user.on('value', function (user_data) {
+                        user_data =user_data.val();
+                        var selfId = localStorage.getItem("userID"),flag = 0;
+                        if(selfId == data_main.personId ){
+                            flag = 1;
+                        }
+                        console.log(user_data.personName)
+                        var box = new chat({
+                            //personUrl:data.personID,
+                            personUrl: '',
+                            personName:user_data.personName || '',
+                            personImg:user_data.personImg ||'',
+                            chatTime:data_time.toLocaleString(),
+                            chatContent:data.val().chatContent,
+                            isSelf:flag
+                        });
 
-                box.render({
-                    container:  index.content
-                })
+                        box.render({
+                            container:  index.content
+                        })
+                    });
             })
         }
     };
@@ -55,11 +62,11 @@ define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,le
             if(chatRoom ){
                 console.log(content+"---"+ chatRoom);
                 var qw = new Wilddog("http://xb_chatroom.wilddogio.com/chat/"+chatRoom);
-
+                var personId = localStorage.getItem('userID') || '';
                 qw.push({
                     chatTime: nowTime.getTime(),
                     chatContent: content,
-                    personId: '12'
+                    personId: personId
                 })
             }
 

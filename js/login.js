@@ -33,6 +33,7 @@ define(['jquery', 'bootstrap'], function ($) {
                             login.register(personName, personPass, personImg)
                         }
                     }else{
+
                         login.register(personName, personPass, personImg)
                     }
 

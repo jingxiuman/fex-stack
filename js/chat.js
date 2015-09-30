@@ -30,6 +30,9 @@ define(['FFF', 'zepto', 'fastclick'], function(FFF, $, fc) {
         },
         chatID:{
             value:''
+        },
+        isSelf:{
+            value:'0'
         }
     };
 
@@ -42,11 +45,14 @@ define(['FFF', 'zepto', 'fastclick'], function(FFF, $, fc) {
             that.setChatTime(data.chatTime);
             that.setChatContent(data.chatContent);
             that.setChatID(data.chatID);
+            that.setIsSelf(data.isSelf);
         },
         renderUI: function(){
             var that =this;
             var box = that.getBoundingBox().find(".chat_content");
-
+            if(that.getIsSelf() == 1){
+                box.addClass("pull-right")
+            }
             box.append('<div class="media-left"><a href="'+that.getPersonUrl()+'"> ' +
                 '<img class="media-object chat_img" src="'+that.getPersonImg()+'" alt="'+that.getPersonName()+'"></a> </div>');
             box.append('<div class="media-body">' +
