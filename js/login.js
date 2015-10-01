@@ -53,7 +53,7 @@ define(['jquery', 'bootstrap'], function ($) {
     };
     login.login = function (personName,userID){
         console.log(personName);
-        $.post("server/login.php",{type:'token',username: personName},function (data) {
+        $.post("../server/login.php",{type:'token',username: personName},function (data) {
             localStorage.setItem('token', data);
             localStorage.setItem('username',personName);
             localStorage.setItem('userID', userID);
