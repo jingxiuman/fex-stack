@@ -1,4 +1,4 @@
-define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,leftNav) {
+define(['chat','zepto','jquery','leftNav','header','bootstrap'], function(chat,zepto,$,leftNav,headerBox) {
     var  index = {};
     index.content = zepto(".index_rightChatRoom_home");
     index.init = function () {
@@ -7,9 +7,17 @@ define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,le
     index.initIndex = function () {
         var nowDate = new Date();
         index.content.append('<div class="divide_main"><div></div> <span>'+nowDate.toLocaleString()+'</span> <div></div> </div>');
+        index.initHeader();
         index.input();
         index.leftNav();
         index.getLast();
+       // $.trigger("reload");
+        zepto(document.body).on("reload", function () {
+            index.getLast();
+            index.input();
+            index.initHeader();
+            console.log("yes")
+        })
     };
     index.leftNav = function () {
         //初始化聊天的房间
@@ -21,8 +29,8 @@ define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,le
         })
     };
     index.getLast = function () {
-        var roomName = sessionStorage.getItem('ChatRoom') || "default";
-        if(roomName){
+        var roomName = localStorage.getItem('Chatroom') || "default";
+
             var ref = new Wilddog("http://xb_chatroom.wilddogio.com/chat/"+roomName);
             ref.on("child_added", function (data) {
                 var data_main = data.val(),
@@ -34,7 +42,6 @@ define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,le
                         if(selfId == data_main.personId ){
                             flag = 1;
                         }
-                        console.log(user_data.personName)
                         var box = new chat({
                             //personUrl:data.personID,
                             personUrl: '',
@@ -50,13 +57,13 @@ define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,le
                         })
                     });
             })
-        }
+
     };
     index.input = function () {
         $(".btn_send").on("click", function () {
             var content = $("#content_input").val().trim();
             var nowTime = new Date();
-             var chatRoom = sessionStorage.getItem('ChatRoom') || "default";
+             var chatRoom = localStorage.getItem('ChatRoom') || "default";
             //var chatRoom = 'default';
             console.log(chatRoom);
             if(chatRoom ){
@@ -102,6 +109,16 @@ define(['chat','zepto','jquery','leftNav','bootstrap'], function(chat,zepto,$,le
         msg_main.find("#msg_btn").on("click", function () {
             window.location="login.html"
         })
+    };
+    index.initHeader = function () {
+        var header_main = new headerBox.header();
+        header_main.render({
+            container:zepto("#index_header")
+        });
+       // var header_add = new headerBox.add();
+        //header_add.render({
+        //    container:zepto(".index_rightNotice")
+        //})
     };
     return index;
 });

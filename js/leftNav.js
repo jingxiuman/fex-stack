@@ -30,7 +30,6 @@ define(['FFF'], function (FFF) {
             var roomName = localStorage.getItem("chatroom");
             that.setChatAdmin(admin);
             that.setChatRoomName(roomName);
-            console.log("leftNAV")
 
         },
         renderUI: function () {
