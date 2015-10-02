@@ -82,7 +82,7 @@ define(['chat','zepto','jquery','leftNav','header','bootstrap'], function(chat,z
     index.isLogin = function () {
        var token = localStorage.getItem('token') || '',
            userName = localStorage.getItem('username') || '';
-        $.post('../server/api.php',{token:token,username:userName}, function (data) {
+        $.post('server/api.php',{token:token,username:userName}, function (data) {
             //console.log(data.code);
             if(data.code == 200){
                 index.initIndex();
